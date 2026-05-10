@@ -114,6 +114,7 @@ commonApp.post("/login", async (req, res, next) => {
 commonApp.get("/logout", (req, res) => {
   //delete token from cookie storage
   res.clearCookie("token", {
+  res.clearCookie("token", {
     httpOnly: true,
     secure: false,
     sameSite: "lax",
