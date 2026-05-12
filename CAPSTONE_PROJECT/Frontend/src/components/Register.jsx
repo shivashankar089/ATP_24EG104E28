@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config/apiConfig";
 
 function Register() {
   const {
@@ -23,7 +24,7 @@ function Register() {
   } = useForm();
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
-  const [preview, setPriview] = useState(null);
+  const [preview, setPreview] = useState(null);
   const navigate = useNavigate();
 
   //When user registration submitted
@@ -48,7 +49,7 @@ function Register() {
       //start loading
       setLoading(true);
       //make HTTP POST req to create User in backend
-      let res = await axios.post("http://localhost:4000/auth/users", formData,{withCredentials:true});
+      let res = await axios.post(`${API_URL}/auth/users`, formData,{withCredentials:true});
 
       if (res.status === 201) {
         //navigate to Login
@@ -56,7 +57,7 @@ function Register() {
       }
     } catch (err) {
 
-      setApiError(err.response?.data?.error || "Registration failed");
+      setApiError(err.response?.data?.error || err.response?.data?.message || "Registration failed. Please check your connection or try again.");
     } finally {
       setLoading(false);
     }
@@ -198,7 +199,7 @@ function Register() {
               onChange={(event) => {
                 let file = event.target.files[0];
                 if (file) {
-                  setPriview(URL.createObjectURL(file));
+                  setPreview(URL.createObjectURL(file));
                 }
               }}
             />
