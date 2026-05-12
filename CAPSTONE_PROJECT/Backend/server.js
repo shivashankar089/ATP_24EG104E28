@@ -43,14 +43,15 @@ const connectDB = async () => {
 
 connectDB();
 
+app.get("/", (req, res) => {
+    res.send("Backend is running");
+});
 //to handle invalid path
 app.use((req, res, next) => {
 
   res.status(404).json({ message: `path ${req.url} is invalid` });
 });
-app.get("/", (req, res) => {
-    res.send("Backend is running");
-});
+
 //Error handling middleware
 app.use((err, req, res, next) => {
 
