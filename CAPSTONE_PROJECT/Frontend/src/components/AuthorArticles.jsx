@@ -24,7 +24,7 @@ function AuthorArticles() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-
+ 
 
   useEffect(() => {
     if (!user) return;
@@ -33,7 +33,7 @@ function AuthorArticles() {
       try {
         setLoading(true);
         //read articles of current author
-        let res = await axios.get(" http://localhost:4000/author-api/articles", { withCredentials: true });
+        let res = await axios.get("http://localhost:4000/author-api/articles", { withCredentials: true });
         if (res.status === 200) {
           setArticles(res.data.payload);
         }
