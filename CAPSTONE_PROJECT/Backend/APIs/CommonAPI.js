@@ -96,8 +96,8 @@ commonApp.post("/login", async (req, res, next) => {
     //set token to res header as httpOnly cookie
     res.cookie("token", signedToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production" || req.secure || req.headers["x-forwarded-proto"] === "https",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     });
     //remove password from user document
     let userObj = user.toObject();
@@ -115,8 +115,8 @@ commonApp.get("/logout", (req, res) => {
   //delete token from cookie storage
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production" || req.secure || req.headers["x-forwarded-proto"] === "https",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   });
   //send res
   res.status(200).json({ message: "Logout success" });

@@ -33,10 +33,10 @@ function UserProfile() {
         let res=await axios.get(`${API_URL}/user-api/articles`,{withCredentials:true})
         //update articles state
         if(res.status===200){
-          setArticles((await res).data.payload)
+          setArticles(res.data.payload)
         }
       } catch (err) {
-        setError(err.response?.data?.error || "Something went wrong");
+        setError(err.response?.data?.error || err.response?.data?.message || "Something went wrong");
       } finally {
         setLoading(false);
       }

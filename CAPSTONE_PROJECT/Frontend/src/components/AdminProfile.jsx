@@ -43,7 +43,7 @@ function AdminProfile() {
       setUsers(usersRes.data.payload);
       setArticles(articlesRes.data.payload);
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to fetch admin data");
+      setError(err.response?.data?.error || err.response?.data?.message || "Failed to fetch admin data");
     } finally {
       setLoading(false);
     }

@@ -41,8 +41,7 @@ function AuthorArticles() {
         }
         //update articles state
       } catch (err) {
-
-        setError(err.response?.data?.error || "Failed to fetch articles");
+        setError(err.response?.data?.error || err.response?.data?.message || "Failed to fetch articles");
       } finally {
         setLoading(false);
       }
