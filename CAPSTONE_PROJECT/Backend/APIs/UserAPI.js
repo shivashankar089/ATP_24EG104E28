@@ -4,11 +4,25 @@ import { ArticleModel } from "../models/ArticleModel.js";
 export const userApp = exp.Router();
 
 //Read articles of all authors
-userApp.get("/articles", verifyToken("USER"), async (req, res) => {
+userApp.get("/articles", verifyToken("USER", "AUTHOR", "ADMIN"), async (req, res) => {
   //read artcles
   const articlesList = await ArticleModel.find({ isArticleActive: true });
   //send res
   res.status(200).json({ message: "artciles", payload: articlesList });
+});
+
+//Read single article by ID
+userApp.get("/article/:id", verifyToken("USER", "AUTHOR", "ADMIN"), async (req, res) => {
+  try {
+    const articleId = req.params.id;
+    const article = await ArticleModel.findById(articleId).populate("comments.user", "firstName lastName email profileImageUrl");
+    if (!article) {
+      return res.status(404).json({ message: "Article not found" });
+    }
+    res.status(200).json({ message: "Article found", payload: article });
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching article", error: err.message });
+  }
 });
 
 //Add comment to an article

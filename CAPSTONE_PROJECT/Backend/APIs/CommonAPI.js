@@ -173,7 +173,8 @@ commonApp.post("/forgot-password", async (req, res, next) => {
     }
     // create a simple reset link for demo purposes
     // in a real app, you'd send an email with a signed token
-    const resetLink = `http://localhost:5173/reset-password?email=${email}`;
+    const frontendUrl = process.env.FRONTEND_URL || req.headers.origin || "http://localhost:5173";
+    const resetLink = `${frontendUrl}/reset-password?email=${email}`;
     res.status(200).json({
       message: "Reset link generated successfully",
       resetLink: resetLink,
