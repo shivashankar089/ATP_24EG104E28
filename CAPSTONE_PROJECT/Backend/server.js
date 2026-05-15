@@ -13,7 +13,7 @@ config();
 const app = exp();
 //enable cors
 app.use(cors({
-  origin:['https://atp-24-eg-104-e28.vercel.app'],
+  origin:['https://atp-24-eg-104-e28.vercel.app', 'http://localhost:5173', 'http://localhost:5174'],
   credentials:true
 }))
 //add cookie parser middeleware

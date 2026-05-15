@@ -132,13 +132,71 @@ commonApp.get("/check-auth", verifyToken("USER", "AUTHOR", "ADMIN"), (req, res) 
   });
 });
 
-//Change password
-commonApp.put("/password", verifyToken("USER", "AUTHOR", "ADMIN"), async (req, res) => {
-  //check current password and new password are same
-  //get current password of user/admin/author
-  //check the current password of req and user are not same
-  // hash new password
-  //replace current password of user with hashed new password
-  //save
-  //send res
+
+// change password
+commonApp.put("/password",verifyToken("USER","AUTHOR","ADMIN"),async(req,res)=>{
+    // get current password and new password from req body
+    const {currentPassword,newPassword}=req.body;
+    //console.log(currentPassword)
+    // check currentpassword and new password are same or not
+    if (currentPassword=== newPassword){
+        return res.status(400).json({message:"New password and Current password should not be same!"})
+    };
+
+    //get user's email from token
+    const getMail=req.user?.email;
+    //console.log(getMail)
+    const getDoc=await UserModel.findOne({email:getMail})
+    //console.log(getDoc)
+    const isMatched= await compare(currentPassword,getDoc.password);
+    //console.log(isMatched)
+    if(!isMatched){
+        return res.status(200).json({message:"Your current password is wrong"})
+    };
+    //hash the password and replace plain password with this hashed password
+    getDoc.password=await hash(newPassword,12);
+    //console.log(getDoc.password)
+    //save the doc
+    getDoc.save();
+    // send res
+    res.status(200).json({message:"Password changed successfully!"})
+});
+
+// Forgot Password
+commonApp.post("/forgot-password", async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    // find user by email
+    const user = await UserModel.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found with this email" });
+    }
+    // create a simple reset link for demo purposes
+    // in a real app, you'd send an email with a signed token
+    const resetLink = `http://localhost:5173/reset-password?email=${email}`;
+    res.status(200).json({
+      message: "Reset link generated successfully",
+      resetLink: resetLink,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Reset Password
+commonApp.put("/reset-password", async (req, res, next) => {
+  try {
+    const { email, newPassword } = req.body;
+    // find user
+    const user = await UserModel.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    // hash new password
+    user.password = await hash(newPassword, 12);
+    await user.save();
+    res.status(200).json({ message: "Password reset successfully" });
+  } catch (err) {
+    next(err);
+  }
 });

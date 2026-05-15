@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import axios from "axios";
 
 
+import { API_URL } from "../config/apiConfig";
+
 import {
   formCard,
   formTitle,
@@ -43,7 +45,7 @@ function EditArticle() {
     //add articleId to modified article
     modifiedArticle.articleId=article._id;
     //make PUT req to update article
-    let res=await axios.put("http://localhost:4000/author-api/articles",
+    let res=await axios.put(`${API_URL}/author-api/articles`,
       modifiedArticle,
       {withCredentials:true})
     //naviagte to articleById component

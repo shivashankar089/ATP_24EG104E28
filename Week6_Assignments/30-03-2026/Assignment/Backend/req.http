@@ -1,0 +1,31 @@
+### Create new employee
+POST http://localhost:4000/employee-api/employees
+Content-Type: application/json
+
+{
+    "name":"ravi",
+    "email":"ravi@mail.com",
+    "mobile":1234567890,
+    "designation":"Desig1",
+    "companyName":"Google"
+}
+
+### Read all employee
+GET http://localhost:4000/employee-api/employees
+
+### Update existing employee
+PUT http://localhost:4000/employee-api/employees/69ca1afa8e54befc4127d77a
+Content-Type: application/json
+
+{
+    "name":"ravi",
+    "email":"ravi@mail.com",
+    "mobile":1234567890,
+    "designation":"Desig2",
+    "companyName":"Google"
+}
+
+### Delete employee by id
+DELETE http://localhost:4000/employee-api/employees/69ca1afa8e54befc4127d77a
+
+

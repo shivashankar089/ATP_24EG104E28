@@ -5,6 +5,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import UserProfile from "./components/UserProfile";
 import AuthorProfile from "./components/AuthorProfile";
+import AdminProfile from "./components/AdminProfile";
 import AuthorArticles from "./components/AuthorArticles";
 import EditArticle from "./components/EditArticle";
 import WriteArticles from "./components/WriteArticles";
@@ -12,6 +13,8 @@ import ArticleByID from "./components/ArticleByID";
 import { Toaster } from "react-hot-toast";
 import Unauthorized from "./components/Unauthorized";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   const routerObj = createBrowserRouter([
@@ -32,10 +35,26 @@ function App() {
           element: <Login />,
         },
         {
+          path: "forgot-password",
+          element: <ForgotPassword />,
+        },
+        {
+          path: "reset-password",
+          element: <ResetPassword />,
+        },
+        {
           path: "user-profile",
           element: (
             <ProtectedRoute allowedRoles={["USER"]}>
               <UserProfile />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "admin-profile",
+          element: (
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <AdminProfile />
             </ProtectedRoute>
           ),
         },

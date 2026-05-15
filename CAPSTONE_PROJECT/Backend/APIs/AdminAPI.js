@@ -50,3 +50,15 @@ adminApp.get("/articles", verifyToken("ADMIN"), async (req, res, next) => {
     next(err);
   }
 });
+
+//Read all users
+adminApp.get("/users", verifyToken("ADMIN"), async (req, res, next) => {
+  try {
+    //read users
+    const usersList = await UserModel.find({}, { password: 0 });
+    //send res
+    res.status(200).json({ message: "Users List:", payload: usersList });
+  } catch (err) {
+    next(err);
+  }
+});

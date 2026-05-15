@@ -3,11 +3,11 @@ POST http://localhost:4000/auth/users
 Content-Type: application/json
 
 {
-  "firstName": "",
+  "firstName": "author1,
   "lastName": "",
-  "email": "user112377@mail.com",
-  "role":"USER",
-  "password": "",
+  "email": "author@mail.com",
+  "role":"AUTHOR",
+  "password":"auth123",
   "profileImageUrl": "https://example.com/avatars/user.png"
 }
 
@@ -16,8 +16,8 @@ POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-  "email":"user1@mail.com",
-  "password":"user1"
+  "email":"admin1@gmail.com",
+  "password":"admin"
 }
 
 ### User logout
