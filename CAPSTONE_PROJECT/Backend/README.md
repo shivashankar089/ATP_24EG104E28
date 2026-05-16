@@ -1,126 +1,66 @@
-1. Generate package.json
-2. Create .env file
-3. Create express app & assign port number
-4. Connect to db
-5. Define schemas and create Models
-    - UserTypeSchema
-        firstName
-        lastName
-        email(unique)
-        password
-        role
-        profileImageUrl
-        isUserActive
+# ⚙️ Pro-Blog Backend API
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
 
-    - ArticleSchema
-        author
-        title
-        category
-        content
-        comments
-        isArticleActive
+The robust server-side engine powering the Pro-Blog Platform, handling authentication, article management, and file uploads.
 
+---
 
-6. Implement APIs
-7. Create common api for register, login and logout
+## 📂 Project Structure
 
+```bash
+Backend/
+├── server.js               # Entry point & Middleware config
+├── APIs/                   # Route Handlers
+│   ├── UserAPI.js          # Auth & Profiles
+│   ├── AuthorAPI.js        # Article CRUD
+│   ├── AdminAPI.js         # User & Content Moderation
+│   └── CommonAPI.js        # Public Access
+├── models/                 # Mongoose Schemas
+├── middlewares/            # JWT & Role Verification
+├── config/                 # Cloudinary & Multer Config
+└── scratch/                # Utility scripts
+```
 
+---
 
+## 📡 API Endpoints
 
+### 👤 User API (`/user-api`)
+- `POST /user` - Register new user
+- `POST /login` - User login (Returns JWT in cookie)
 
+### ✍️ Author API (`/author-api`)
+- `POST /article` - Create new article (requires image)
+- `PUT /article` - Edit existing article
+- `DELETE /article/:id` - Remove an article
+- `GET /articles` - Fetch author's own articles
 
-### Frontend
-    Dynamic, Responsive User Interfaces(UI== web page--->Browser)
-                               HTML
-                  CSS(styles & Responsiveness)  , Bootstrap, TailwindCSS    
-    JavaScript
-    ReactJS/Angular/Vue/NextJS        
+### 🛡️ Admin API (`/admin-api`)
+- `GET /users` - List all registered users
+- `DELETE /user/:id` - Remove a user
+- `PUT /article/:id` - Approve/Reject articles
+- `GET /articles` - View all articles (Moderation queue)
 
+---
 
+## 🔐 Security & Features
+- **JWT Authentication**: Secure stateless authentication using JSON Web Tokens.
+- **Role-Based Access (RBAC)**: Strict middleware-level checks for Author and Admin roles.
+- **Image Processing**: On-the-fly image transformations and storage via Cloudinary.
+- **CORS Enabled**: Configured for secure cross-origin requests from the frontend.
 
-# STORING FILES IN MERN APP
+---
 
-    Client                              Backend
-    --------------------------------------------
-    JSON                                req.body(exp.json()->body parser )  ---> DB
-    Binary data(File)                   req.file ( multer ) ---> DB (X)
+## 🛠️ Installation
 
-                                        3rd party cloud(AWS, Cloudinary)
-                                            |
-                                            CDN link of the file
-                                            |
-                                            Store in DB
+1. Clone and Navigate: `cd CAPSTONE_PROJECT/Backend`
+2. Install Dependencies: `npm install`
+3. Configure Environment: Create `.env` file.
+4. Start Server: `npm start` (or `node server.js`)
 
-
-- Install cloudinary & multer
-        npm install cloudinary multer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-cloudinary.js
--------------
-import { v2 as cloudinary } from "cloudinary";
-
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
-});
-
-export default cloudinary;
-
-
-
-
-cloudinaryUpload.js
--------------------
-import cloudinary from "./cloudinary.js";
-
-export const uploadToCloudinary = (buffer) => {
-  return new Promise((resolve, reject) => {
-    const stream = cloudinary.uploader.upload_stream({ folder: "blog_users" }, (err, result) => {
-      if (err) return reject(err);
-      resolve(result);
-    });
-    stream.end(buffer);
-  });
-};
-
-
-
-multer.js
----------
-import multer from "multer";
-
-export const upload = multer({
-  storage: multer.memoryStorage(),
-  //to avoid RAM overflow
-  limits: {
-    fileSize: 2 * 1024 * 1024, // 2MB
-  },
-  //for security validation
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
-      cb(null, true);
-    } else {
-      const err = new Error("Only JPG and PNG allowed");
-      err.status = 400;
-      cb(err, false);
-    }
-  },
-});
+---
+**Author Roll No:** 24EG104E28

@@ -1,16 +1,59 @@
-# React + Vite
+# 🎨 Pro-Blog Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-orange?style=for-the-badge)
 
-Currently, two official plugins are available:
+A modern, responsive, and high-performance user interface for the Pro-Blog Platform.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dynamic Routing**: Smooth navigation using React Router v6.
+- **Global State**: Efficient authentication and user state management with Zustand.
+- **Component Based**: Modular architecture for scalability and maintenance.
+- **Utility Styling**: Rapid UI development using Tailwind CSS.
+- **Role-Aware UI**: Interface dynamically adapts based on User, Author, or Admin roles.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Architecture
+
+```bash
+Frontend/src/
+├── components/         # Reusable UI Components
+│   ├── Layout/         # Header, Footer, Root
+│   ├── Auth/           # Login, Register
+│   ├── Articles/       # List, View, Create, Edit
+│   └── Dashboards/     # Admin, Author, User Profiles
+├── store/              # Zustand Stores (authStore.js)
+├── styles/             # Global & Shared CSS
+├── config/             # API Base URLs & Constants
+└── App.jsx             # Main Routing Hub
+```
+
+---
+
+## 🚦 Navigation Routes
+
+| Path | Description | Access |
+| :--- | :--- | :--- |
+| `/` | Home Page | Public |
+| `/articles` | Published Articles | Public |
+| `/login` | Authentication | Public |
+| `/author-profile` | Writing Dashboard | Author Only |
+| `/admin-profile` | User & Content Management | Admin Only |
+
+---
+
+## 🛠️ Development
+
+1. Navigate: `cd CAPSTONE_PROJECT/Frontend`
+2. Install: `npm install`
+3. Run: `npm run dev`
+4. Build: `npm run build`
+
+---
+**Author Roll No:** 24EG104E28

@@ -1,17 +1,23 @@
-# Handling Events
+# ⚛️ Day 15: React Assignment 1
 
-- Calling non parameterized event handler
-- Calling parameterized event handler
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-# State: The snapshot of a particular data at an instance in time is know as state
+Focus on component structure and state management within a Vite-based React application.
 
-# useEffect Hook
+---
 
--Takes two arguments i.e., a callback function and dependency array
--callback function is used to access things outside the react app
--dependency array can supplied to stop continuos rerendering
+## 🛠️ Features
+- Component composition.
+- Props usage.
+- State management with `useState`.
 
-# Form validation & Submission
+---
 
--React
--React-hhok-form or formik
+## 🚀 How to Run
+```bash
+npm install
+npm run dev
+```
+
+---
+**Author Roll No:** 24EG104E28
