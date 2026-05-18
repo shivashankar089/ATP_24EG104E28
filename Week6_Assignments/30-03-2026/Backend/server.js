@@ -8,7 +8,7 @@ const app = exp()
 
 app.use(
   cors({
-    origin: '*'
+    origin: 'https://emp-management-nu24.onrender.com'
   })
 )
 
