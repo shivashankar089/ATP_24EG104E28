@@ -43,56 +43,74 @@ function CreateEmp() {
     return <p className="text-center text-4xl text-red-400">{error.message}</p>
   }
   return (
-    <div>
-      <h1 className="text-5xl text-center text-gray-600 mb-5">
-        Create New Employee
-      </h1>
-      <form
-        className="w-full max-w-md mx-auto"
-        onSubmit={handleSubmit(onFormSubmit)}
-      >
-        <input
-          type="text"
-          placeholder="Enter Name"
-          {...register('name')}
-          id="name"
-          className=" mb-3 p-3 rounded-2xl border w-full shadow-2xl"
-        />
-        <input
-          type="text"
-          placeholder="Enter Email"
-          {...register('email')}
-          id="email"
-          className=" mb-3 p-3 rounded-2xl border w-full shadow-2xl"
-        />
-        <input
-          type="text"
-          placeholder="Enter Mobile"
-          {...register('mobile')}
-          id="mobile"
-          className=" mb-3 p-3 rounded-2xl border w-full shadow-2xl"
-        />
-        <input
-          type="text"
-          placeholder="Enter Designation"
-          {...register('designation')}
-          id="designation"
-          className=" mb-3 p-3 rounded-2xl border w-full shadow-2xl"
-        />
-        <input
-          type="text"
-          placeholder="Enter Company Name"
-          {...register('companyName')}
-          id="companyName"
-          className=" mb-3 p-3 rounded-2xl border w-full shadow-2xl"
-        />
-        <button
-          type="submit"
-          className="text-2xl text-white bg-gray-700 p-3 rounded-2xl block mx-auto"
+    <div className="max-w-xl mx-auto mt-8">
+      <div className="bg-white p-10 rounded-2xl shadow-xl border border-slate-100">
+        <h1 className="text-3xl font-extrabold text-slate-800 text-center mb-8">
+          Create New Employee
+        </h1>
+        <form
+          className="space-y-5"
+          onSubmit={handleSubmit(onFormSubmit)}
         >
-          Add Emp
-        </button>
-      </form>
+          <div>
+            <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
+            <input
+              type="text"
+              placeholder="e.g. Jane Doe"
+              {...register('name')}
+              id="name"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
+            <input
+              type="text"
+              placeholder="e.g. jane@example.com"
+              {...register('email')}
+              id="email"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+            />
+          </div>
+          <div>
+            <label htmlFor="mobile" className="block text-sm font-semibold text-slate-700 mb-1">Mobile Number</label>
+            <input
+              type="text"
+              placeholder="e.g. +1 234 567 890"
+              {...register('mobile')}
+              id="mobile"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+            />
+          </div>
+          <div>
+            <label htmlFor="designation" className="block text-sm font-semibold text-slate-700 mb-1">Designation</label>
+            <input
+              type="text"
+              placeholder="e.g. Software Engineer"
+              {...register('designation')}
+              id="designation"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+            />
+          </div>
+          <div>
+            <label htmlFor="companyName" className="block text-sm font-semibold text-slate-700 mb-1">Company Name</label>
+            <input
+              type="text"
+              placeholder="e.g. TechCorp Inc."
+              {...register('companyName')}
+              id="companyName"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+            />
+          </div>
+          
+          <button
+            type="submit"
+            className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg py-3.5 transition-colors shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Create Employee
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

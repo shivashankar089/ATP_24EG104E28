@@ -14,7 +14,7 @@ employeeApp.post('/employees', async (req, res) => {
 
     const result = await newEmployeeDocument.save()
 
-    console.log('result:', result)
+   // console.log('result:', result)
 
     res.status(201).json({ message: 'employee Created' })
   } catch (err) {
