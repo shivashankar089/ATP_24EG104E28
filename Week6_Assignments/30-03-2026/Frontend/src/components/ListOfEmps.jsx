@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import BASE_URL from '../config'
+import VITE_API_URL from '../config'
 function ListOfEmps() {
   const [emps, setEmps] = useState([])
   const [loading, setLoading] = useState(false)
@@ -18,7 +18,7 @@ function ListOfEmps() {
       setLoading(true)
 
       const res = await axios.delete(
-        `${BASE_URL}/employee-api/employees/${empObj._id}`
+        `${VITE_API_URL}/employee-api/employees/${empObj._id}`
       )
 
       if (res.status === 200) {
@@ -33,7 +33,7 @@ function ListOfEmps() {
   async function getEmps() {
     try {
       setLoading(true)
-      const res = await axios.get(`${BASE_URL}/employee-api/employees`)
+      const res = await axios.get(`${VITE_API_URL}/employee-api/employees`)
       if (res.status === 200) {
         setEmps(res.data.payload)
       }

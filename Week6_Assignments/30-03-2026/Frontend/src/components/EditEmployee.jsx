@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import axios from 'axios'
-import BASE_URL from '../config'
+import VITE_API_URL from '../config'
 function EditEmployee() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -26,7 +26,7 @@ function EditEmployee() {
       setLoading(true)
       setError(null)
       const res = await axios.put(
-        `${BASE_URL}/employee-api/employees/${state._id}`,
+        `${VITE_API_URL}/employee-api/employees/${state._id}`,
         modifiedEmp
       )
       if (res.status === 200) {

@@ -1,2 +1,2 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000"
-export default BASE_URL
+const VITE_API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000"
+export default VITE_API_URL
