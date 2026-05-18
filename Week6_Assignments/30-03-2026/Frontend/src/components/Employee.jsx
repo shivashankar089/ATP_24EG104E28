@@ -7,7 +7,7 @@ function Employee() {
     <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 h-32 flex items-center justify-center relative">
         <div className="absolute -bottom-12 w-24 h-24 bg-white text-indigo-600 rounded-full flex items-center justify-center text-4xl font-bold border-4 border-white shadow-md">
-          {state.name.charAt(0).toUpperCase()}
+          {state?.name ? state.name.charAt(0).toUpperCase() : '?'}
         </div>
       </div>
       <div className="pt-16 pb-8 px-8 text-center">

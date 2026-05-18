@@ -68,7 +68,7 @@ function ListOfEmps() {
           >
             <div className="mb-4 text-center">
               <div className="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                {empObj.name.charAt(0).toUpperCase()}
+                {empObj.name ? empObj.name.charAt(0).toUpperCase() : '?'}
               </div>
               <h2 className="text-xl font-bold text-slate-800">{empObj.name}</h2>
               <p className="text-sm text-slate-500 mt-1 break-words">{empObj.email}</p>

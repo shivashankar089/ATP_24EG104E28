@@ -26,11 +26,10 @@ function CreateEmp() {
       if (res.status === 201) {
         navigate('/list')
       } else {
-        let errorRes = await res.json()
-        throw new Error(errorRes)
+        throw new Error(res.data?.message || 'Error occurred')
       }
     } catch (err) {
-      setError(err.message)
+      setError(err.response?.data?.message || err.message)
     } finally {
       setLoading(false)
     }
@@ -40,7 +39,7 @@ function CreateEmp() {
     return <p className="text-center text-4xl text-gray-600">Loading....</p>
   }
   if (error) {
-    return <p className="text-center text-4xl text-red-400">{error.message}</p>
+    return <p className="text-center text-4xl text-red-400">{error}</p>
   }
   return (
     <div className="max-w-xl mx-auto mt-8">
