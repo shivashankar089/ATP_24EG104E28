@@ -26,19 +26,62 @@ app.use("/author-api", authorApp);
 app.use("/admin-api", adminApp);
 app.use("/auth", commonApp);
 
-//connect to db
+//connect to db with validation and retry
 const connectDB = async () => {
-  try {
-    await connect(process.env.DB_URL);
-    console.log("Database connected successfully");
-    //assign port
-    const port = process.env.PORT || 4000;
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-  } catch (err) {
-    console.error("Database connection failed:", err);
+  const rawUrl = process.env.DB_URL;
+  if (!rawUrl) {
+    console.error("DB_URL is not set. Please add DB_URL to your .env file.");
+    process.exit(1);
   }
+
+  // Ensure a database name is present in the URL; if not, append a default
+  let dbUrl = rawUrl;
+  const firstPart = rawUrl.split("?")[0];
+  const hasDbName = /\/[^\/\?]+$/.test(firstPart) && !firstPart.endsWith("/");
+  if (!hasDbName) {
+    const dbName = process.env.DB_NAME || "blogdb";
+    if (rawUrl.includes("?")) {
+      dbUrl = rawUrl.replace(/\/?(\?.*)$/, `/${dbName}$1`);
+    } else if (rawUrl.endsWith("/")) {
+      dbUrl = rawUrl + dbName;
+    } else {
+      dbUrl = rawUrl + "/" + dbName;
+    }
+    console.warn(`DB_URL did not include a database name; using '${dbName}'.`);
+  }
+
+  const maxRetries = 5;
+  let attempt = 0;
+
+  const tryConnect = async () => {
+    attempt += 1;
+    try {
+      await connect(dbUrl, {
+        serverSelectionTimeoutMS: 5000,
+        socketTimeoutMS: 45000,
+        family: 4,
+      });
+      console.log("Database connected successfully");
+      const port = process.env.PORT || 4000;
+      app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+      });
+    } catch (err) {
+      console.error(`Database connection attempt ${attempt} failed:`, err.message ?? err);
+      if (attempt < maxRetries) {
+        const delay = Math.min(30000, 1000 * Math.pow(2, attempt));
+        console.log(`Retrying connection in ${delay / 1000}s...`);
+        setTimeout(tryConnect, delay);
+      } else {
+        console.error("All database connection attempts failed.");
+        console.error("Common causes: incorrect DB_URL, missing DB user/password, or Atlas IP whitelist blocking this machine.");
+        console.error("Check your .env and Atlas network access, then restart the server.");
+        process.exit(1);
+      }
+    }
+  };
+
+  tryConnect();
 };
 
 connectDB();
