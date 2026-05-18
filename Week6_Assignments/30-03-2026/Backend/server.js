@@ -8,7 +8,7 @@ const app = exp()
 
 app.use(
   cors({
-    origin: 'https://emp-management-nu24.onrender.com',
+    origin: ['https://emp-management-nu24.onrender.com', 'https://emp-management-git-main-shivashankar089s-projects.vercel.app'],
     credentials: true
   })
 )
