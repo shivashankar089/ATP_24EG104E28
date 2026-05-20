@@ -1,9 +1,10 @@
 #  Capstone Project: Pro-Blog Platform
-
-![Platform](https://img.shields.io/badge/Platform-Full--Stack-blue?style=for-the-badge)
-![React](https://img.shields.io/badge/Frontend-React%2018-61DAFB?style=for-the-badge&logo=react)
-![Node](https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=nodedotjs)
+![Platform](https://img.shields.io/badge/Platform-Full--Stack-47A248?style=for-the-badge)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?style=for-the-badge&logo=mongodb)
+![Express.js](https://img.shields.io/badge/Backend-Express.js-47A248?style=for-the-badge&logo=express)
+![React.js](https://img.shields.io/badge/Frontend-React.js-47A248?style=for-the-badge&logo=react)
+![Node](https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=nodedotjs)
+
 
 A complete, production-ready Full-Stack Blog Application with role-based access control, secure authentication, and a dynamic user interface.
 
