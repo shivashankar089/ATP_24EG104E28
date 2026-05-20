@@ -12,7 +12,7 @@ Advancing React skills with a focus on hooks, context API, and building interact
 
 ---
 
-## 📂Day-wise Breakout
+## Day-wise Breakout
 
 ### [ Day 15 (28-03-2026)](./Day-15(28-03-2026))
 Introduction to foundational React concepts and component communication.
