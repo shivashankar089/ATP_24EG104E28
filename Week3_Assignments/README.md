@@ -1,10 +1,10 @@
-# 📅 Week 3: Backend Development with Node & Express
+#  Week 3: Backend Development with Node & Express
 
 Introduction to server-side programming, RESTful APIs, and the MVC architectural pattern.
 
 ---
 
-## 📝 Topics Covered
+##  Topics Covered
 - Setting up a Node.js server.
 - Express Routing and HTTP Methods (GET, POST, PUT, DELETE).
 - Middleware implementation (Custom & Built-in).
@@ -13,7 +13,7 @@ Introduction to server-side programming, RESTful APIs, and the MVC architectural
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 - `server.js`: The entry point for the Express application.
 - `APIs/`: Directory for route handlers.
 - `models/`: Mongoose schemas for data persistence.
@@ -21,15 +21,15 @@ Introduction to server-side programming, RESTful APIs, and the MVC architectural
 
 ---
 
-## 🧪 Testing
+##  Testing
 The API can be tested using the provided `req.http` file, which contains sample requests for various endpoints.
 
 ---
 
-## 💡 Skills Gained
+##  Conclusion
 - Building a modular Express application.
 - Designing efficient database schemas.
 - Handling request/response cycles effectively.
 
 ---
-**Author Roll No:** 24EG104E28
+**Roll No:** 24EG104E28

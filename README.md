@@ -1,15 +1,15 @@
-# ATP Training Program - Full Stack Web Development
+# ATP Training Program - Full Stack MERN
 
 Welcome to my comprehensive repository for the ATP Training Program. This repository documents my journey through various stages of Full Stack Web Development, from JavaScript fundamentals to building a complete production-ready Capstone Project.
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 This repository is organized into weekly assignments and a final Capstone Project.
 
 
-### 📅 Weekly Progress
+### Weekly Progress
 
 | Week | Focus Area | Key Topics | Link |
 | :--- | :--- | :--- | :--- |
@@ -22,7 +22,7 @@ This repository is organized into weekly assignments and a final Capstone Projec
 
 
 
-### 🏆 [Capstone Project](./CAPSTONE_PROJECT)
+### [Capstone Project](./CAPSTONE_PROJECT)
 A full-stack Blog Application featuring:
 - Role-based Access Control (Admin, Author, User)
 - JWT Authentication & Secure Cookies
@@ -30,7 +30,7 @@ A full-stack Blog Application featuring:
 - Modern UI with React & Tailwind CSS
 
 
-## 👤 Author
+## Author
 
 - **Roll Number:** 24EG104E28
-- **Program:** ATP Training (Full Stack Development)
+- **Program:** ATP Training (Full Stack MERN Development)

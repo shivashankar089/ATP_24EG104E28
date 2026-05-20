@@ -1,4 +1,4 @@
-# ⚛️ Day 15: React Assignment 1
+#  Day 15: React Assignment 1
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
@@ -6,18 +6,18 @@ Focus on component structure and state management within a Vite-based React appl
 
 ---
 
-## 🛠️ Features
+##  Features
 - Component composition.
 - Props usage.
 - State management with `useState`.
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 ```bash
 npm install
 npm run dev
 ```
 
 ---
-**Author Roll No:** 24EG104E28
+**Roll No:** 24EG104E28

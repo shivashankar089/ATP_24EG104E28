@@ -1,10 +1,10 @@
-# 📅 Week 1: JavaScript Fundamentals
+# Week 1: JavaScript Fundamentals
 
 Foundation week focused on core JavaScript syntax, data types, and basic problem-solving.
 
 ---
 
-## 📝 Topics Covered
+## Topics Covered
 - Variables (`var`, `let`, `const`)
 - Conditional Statements (If-Else)
 - Basic Loops (For, While)
@@ -13,7 +13,7 @@ Foundation week focused on core JavaScript syntax, data types, and basic problem
 
 ---
 
-## 📂 Included Assignments
+## Included Assignments
 
 | File | Description |
 | :--- | :--- |
@@ -25,10 +25,10 @@ Foundation week focused on core JavaScript syntax, data types, and basic problem
 
 ---
 
-## 💡 Skills Gained
+## Conclusion
 - Understanding JS execution context.
 - Logical operators and control flow.
 - Basic array iteration techniques.
 
 ---
-**Author Roll No:** 24EG104E28
+**Roll No:** 24EG104E28
