@@ -1,11 +1,18 @@
-function sumOfArrayElem(a){
-    let res=0;
-    for (let i=0;i<a.length;i++){
-        res=res+a[i]  
+function sumOfArrayElem(a) {
+    let res = 0;
+    // Loop through each element in the array
+    for (let i = 0; i < a.length; i++) {
+        res = res + a[i];  
     }
- return res
-    
+    // Return the accumulated sum
+    return res;
 }
-let arr=[10,20,30,40]
-result=sumOfArrayElem(arr)
-console.log(result)
+
+// Define a test array
+let arr = [10, 20, 30, 40];
+
+// Invoke the function and store the result
+const result = sumOfArrayElem(arr);
+
+// Print the computed sum to the console
+console.log(result);

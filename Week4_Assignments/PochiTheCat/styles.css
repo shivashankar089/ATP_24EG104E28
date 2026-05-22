@@ -1,4 +1,8 @@
-img{
+/* Stylesheet for Pochi the Cat profile page */
+
+img {
+    /* Float the image to the right side of the containing text layout */
     float: right;
-    width:300px;
+    /* Constrain the image width to 300 pixels for consistent layout sizing */
+    width: 300px;
 }
