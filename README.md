@@ -33,4 +33,4 @@ A full-stack Blog Application featuring:
 ## Author
 - **Name:** Nukala Shiva Shankar
 - **Roll Number:** 24EG104E28
-- **Program:** ATP Training (Full Stack MERN Development)
+- **Program:** Full Stack MERN (ATP)
