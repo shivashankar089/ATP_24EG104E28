@@ -77,7 +77,7 @@ npm run dev
 ---
 
 ##  Author
-- **Name     :** Nukala Shiva Shankar
+- **Name     :** Nukala Shiva Shankar 
 - **Roll No. :** 24EG104E28
 - **College  :** Anurag University
 

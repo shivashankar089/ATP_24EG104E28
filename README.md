@@ -31,6 +31,6 @@ A full-stack Blog Application featuring:
 
 
 ## Author
-- **Name:** Nukala Shiva Shankar
-- **Roll Number:** 24EG104E28
-- **Program:** Full Stack MERN (ATP)
+- **Name :** Nukala Shiva Shankar
+- **Roll Number :** 24EG104E28
+- **Program :** Full Stack MERN (ATP)
