@@ -1,6 +1,6 @@
-# ATP Training Program - Full Stack MERN
+# Full Stack MERN
 
-Welcome to my comprehensive repository for the ATP Training Program. This repository documents my journey through various stages of Full Stack Web Development, from JavaScript fundamentals to building a complete production-ready Capstone Project.
+Welcome to my comprehensive repository. This repository documents my journey through various stages of Full Stack Web Development, from JavaScript fundamentals to building a complete production-ready Capstone Project.
 
 ---
 
@@ -31,6 +31,6 @@ A full-stack Blog Application featuring:
 
 
 ## Author
-
+- **Name:** Nukala Shiva Shankar
 - **Roll Number:** 24EG104E28
 - **Program:** ATP Training (Full Stack MERN Development)
