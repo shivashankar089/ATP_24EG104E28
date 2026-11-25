@@ -13,8 +13,8 @@ config();
 const app = exp();
 //enable cors
 app.use(cors({
-  origin:[process.env.FRONTEND_URL, 'https://atp-24-eg-104-e28.vercel.app', 'http://localhost:5173', 'http://localhost:5174','https://atp-24-eg-104-e28-ez01o8r5s-shivashankar089s-projects.vercel.app'],
-  credentials:true
+  origin: [process.env.FRONTEND_URL, 'https://blog-onestop.vercel.app', 'http://localhost:5173', 'http://localhost:5174', 'https://atp-24-eg-104-e28-ez01o8r5s-shivashankar089s-projects.vercel.app'],
+  credentials: true
 }))
 //add cookie parser middeleware
 app.use(cookieParser())
@@ -87,7 +87,7 @@ const connectDB = async () => {
 connectDB();
 
 app.get("/", (req, res) => {
-    res.send("Backend is running");
+  res.send("Backend is running");
 });
 //to handle invalid path
 app.use((req, res, next) => {
